@@ -7,12 +7,21 @@ set  -o xtrace  -o errexit  -o nounset  -o pipefail
 
 BRANCH="$( echo "${GITHUB_REF}" | cut -d'/' -f3 )"
 
-for GET_FILE in "$@"; do
+function getRepoFile () {
+    GET_FILE="$1"
     mkdir -p  "$( dirname "${GET_FILE}" )"
     wget --header "Authorization: token ${GITHUB_TOKEN}" \
          --header 'Accept: application/vnd.github.v3.raw' \
          --output-document="${GET_FILE}" \
          "https://api.github.com/repos/magehost/mhservers/contents/${GET_FILE}?ref=${BRANCH}"
+}
+
+getRepoFile "mh-deploy/package.sh"
+getRepoFile "mh-deploy/deploy_header.sh"
+getRepoFile "mh-deploy/deploy_tail.sh"
+
+for FILE in "$@"; do
+    getRepoFile "${FILE}"
 done
 
 RESULTFILE=$( bash  mh-deploy/package.sh  usr/share/mh-install )
