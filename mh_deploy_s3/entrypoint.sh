@@ -2,6 +2,7 @@
 #
 # Needs env vars:  GITHUB_REF  GITHUB_TOKEN  AWS_ACCESS_KEY_ID  AWS_SECRET_ACCESS_KEY
 #
+# When you change this file, don't forget to updat
 
 set  -o xtrace  -o errexit  -o nounset  -o pipefail
 

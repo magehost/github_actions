@@ -1,6 +1,6 @@
 FROM python:3-stretch
 
-# LABEL "version"="1.1.0"
+LABEL "version"="1.1.1"
 
 LABEL "name"="mh_deploy_to_s3"
 LABEL "maintainer"="Jeroen Vermeulen <jeroen@magehost.pro>"
