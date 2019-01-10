@@ -14,10 +14,6 @@ LABEL "com.github.actions.color"="green"
 
 COPY entrypoint.sh /entrypoint.sh
 
-#RUN apt-get update && \
-#  apt-get install -y --no-install-recommends curl groff jq && \
-#  pip install setuptools awscli
-
 RUN apt-get update && \
   pip install awscli
 
