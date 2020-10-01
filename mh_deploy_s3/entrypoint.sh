@@ -4,6 +4,7 @@
 #
 # When you change this file, don't forget to increase the "version" label in the Dockerfile
 #
+# This script is called from  /srv/magehost/.github/workflows/push.yml
 
 set  -o xtrace  -o errexit  -o nounset  -o pipefail
 
@@ -26,7 +27,7 @@ for FILE in "$@"; do
     getRepoFile "${FILE}"
 done
 
-RESULTFILE=$( bash  mh-deploy/package.sh  usr/share/mh-install )
+RESULTFILE=$( bash  mh-deploy/package.sh )
 
 aws  s3  cp  \
     --acl public-read  \
