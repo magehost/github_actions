@@ -10,8 +10,9 @@ set  -o xtrace  -o errexit  -o nounset  -o pipefail  +o history
 # This script is called from  /srv/magehost/.github/workflows/push.yml
 
 BRANCH="$( echo "${GITHUB_REF}" | cut -d'/' -f3 )"
-git status
-git checkout --track "origin/$NEXT_BRANCH"
-git merge "$BRANCH"
-git status
+git  status
+git  fetch
+git  checkout  -b "$NEXT_BRANCH"  "origin/$NEXT_BRANCH"
+git  merge "$BRANCH"
+git  status
 
