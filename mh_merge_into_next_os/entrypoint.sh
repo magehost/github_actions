@@ -11,7 +11,7 @@ set  -o xtrace  -o errexit  -o nounset  -o pipefail  +o history
 
 BRANCH="$( echo "${GITHUB_REF}" | cut -d'/' -f3 )"
 git  status
-git  fetch
+git  fetch --unshallow
 git  checkout  -b "$NEXT_BRANCH"  "origin/$NEXT_BRANCH"
 git  merge "$BRANCH"
 git  status
