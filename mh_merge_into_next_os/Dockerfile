@@ -1,6 +1,6 @@
-FROM python:3-stretch
+FROM ubuntu:latest
 
-LABEL "version"="0.0.4"
+LABEL "version"="0.0.6"
 
 LABEL "name"="mh_merge_into_next_os"
 LABEL "maintainer"="Jeroen Vermeulen <jeroen@magehost.pro>"
