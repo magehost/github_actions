@@ -12,9 +12,12 @@ BRANCH="$( echo "${GITHUB_REF}" | cut -d'/' -f3 )"
 
 if [ "bionic" == "$BRANCH" ]; then
     # git clone -b focal https://${GITHUB_TOKEN}@github.com/magehost/mhservers.git
-    # git merge origin/bionic
     # git status
     pwd
     ls -la
+    git branch
+    git status
+    git merge origin/bionic
+    git status
 fi
 
