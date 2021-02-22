@@ -1,6 +1,9 @@
 #!/bin/bash
+IFS=$'\n'
+set  -o xtrace  -o errexit  -o nounset  -o pipefail  +o history
+
 #
-# Needs env vars:  GITHUB_REF  GITHUB_TOKEN
+# Needs env vars:  GITHUB_REF  GITHUB_TOKEN  NEXT_BRANCH
 #
 # When you change this file, don't forget to increase the "version" label in the Dockerfile
 #
@@ -13,11 +16,9 @@ BRANCH="$( echo "${GITHUB_REF}" | cut -d'/' -f3 )"
 if [ "bionic" == "$BRANCH" ]; then
     # git clone -b focal https://${GITHUB_TOKEN}@github.com/magehost/mhservers.git
     # git status
-    pwd
-    ls -la
-    git branch
     git status
-    git merge origin/bionic
+    git checkout "origin/$NEXT_BRANCH" -b "$NEXT_BRANCH"
+    git merge bionic && date
     git status
 fi
 
