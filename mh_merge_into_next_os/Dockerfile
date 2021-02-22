@@ -1,6 +1,6 @@
 FROM python:3
 
-LABEL "version"="0.0.10"
+LABEL "version"="0.0.11"
 
 LABEL "name"="mh_merge_into_next_os"
 LABEL "maintainer"="Jeroen Vermeulen <jeroen@magehost.pro>"

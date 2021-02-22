@@ -10,6 +10,8 @@ set  -o xtrace  -o errexit  -o nounset  -o pipefail  +o history
 # This script is called from  /srv/magehost/.github/workflows/push.yml
 
 BRANCH="$( echo "${GITHUB_REF}" | cut -d'/' -f3 )"
+git  config  user.email  "robot@magehost.eu"
+git  config  user.name   "GitHub Actions: Merge into next OS"
 git  status
 git  fetch --unshallow
 git  checkout  -b "$NEXT_BRANCH"  "origin/$NEXT_BRANCH"
