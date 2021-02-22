@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+FROM alpine/git
 
-LABEL "version"="0.0.6"
+LABEL "version"="0.0.7"
 
 LABEL "name"="mh_merge_into_next_os"
 LABEL "maintainer"="Jeroen Vermeulen <jeroen@magehost.pro>"
