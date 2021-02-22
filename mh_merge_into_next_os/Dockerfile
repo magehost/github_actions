@@ -1,6 +1,6 @@
-FROM alpine/git
+FROM python:3
 
-LABEL "version"="0.0.7"
+LABEL "version"="0.0.8"
 
 LABEL "name"="mh_merge_into_next_os"
 LABEL "maintainer"="Jeroen Vermeulen <jeroen@magehost.pro>"
