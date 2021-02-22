@@ -17,4 +17,4 @@ git  fetch --unshallow
 git  checkout  -b "$NEXT_BRANCH"  "origin/$NEXT_BRANCH"
 git  merge "$BRANCH"
 git  status
-
+git  push  -u  origin  "$NEXT_BRANCH"
